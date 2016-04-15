@@ -1,0 +1,42 @@
+allprojects {
+    apply plugin: 'idea'
+
+    version = version
+
+    defaultTasks 'build', 'jacocoTestReport'
+
+    idea.module {
+        [".idea", ".gradle"].each { excludeDirs += file("$it") }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'maven'
+    apply plugin: 'jacoco'
+
+    group 'me.igornostali.training'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+
+    ext {
+        spock_version = '1.0-groovy-2.4'
+    }
+
+    ext.deps = [
+            spock: [
+                    "org.spockframework:spock-core:$spock_version"
+            ],
+    ]
+}

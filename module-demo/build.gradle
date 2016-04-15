@@ -1,0 +1,7 @@
+project(':module-cool') {
+    apply plugin: 'groovy'
+
+    dependencies {
+        testCompile deps.spock
+    }
+}

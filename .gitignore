@@ -1,0 +1,4 @@
+# Ignore IntelliJ IDEA files except Code Style Settings
+*.iml
+.idea/**/*
+!.idea/codeStykeSettings.xml
