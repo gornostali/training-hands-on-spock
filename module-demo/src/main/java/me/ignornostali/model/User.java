@@ -7,6 +7,7 @@ package me.ignornostali.model;
  */
 public class User {
 
+    private long id;
     private String firstName;
     private String lastName;
 
@@ -32,5 +33,18 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(final long id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "User #" + this.id + " -> " + this.firstName + " " + this.lastName;
     }
 }

@@ -1,4 +1,4 @@
-project(':module-cool') {
+project(':module-demo') {
     apply plugin: 'groovy'
 
     dependencies {
