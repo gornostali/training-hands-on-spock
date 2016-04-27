@@ -42,7 +42,8 @@ subprojects {
             ],
             spring_test: "org.springframework:spring-test:$spring_version",
             spock      : [
-                    "org.spockframework:spock-core:$spock_version"
+                    "org.spockframework:spock-core:$spock_version",
+                    "org.spockframework:spock-spring:$spock_version"
             ],
     ]
 }
