@@ -1,4 +1,4 @@
-package me.ignornostali.model;
+package me.igornostali.model;
 
 /**
  * Defines a simple model for a user entity
@@ -10,17 +10,14 @@ public class User {
     private long id;
     private String firstName;
     private String lastName;
+    private String email;
 
-    public User() {
-    }
-
-    public User(final String firstName, final String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public User(final String email) {
+        this.email = email;
     }
 
     public String getFirstName() {
-        return firstName;
+        return this.firstName;
     }
 
     public void setFirstName(String firstName) {
@@ -28,7 +25,7 @@ public class User {
     }
 
     public String getLastName() {
-        return lastName;
+        return this.lastName;
     }
 
     public void setLastName(String lastName) {
@@ -43,8 +40,12 @@ public class User {
         this.id = id;
     }
 
+    public String getEmail() {
+        return this.email;
+    }
+
     @Override
     public String toString() {
-        return "User #" + this.id + " -> " + this.firstName + " " + this.lastName;
+        return "User #" + this.email + " -> " + this.firstName + " " + this.lastName;
     }
 }

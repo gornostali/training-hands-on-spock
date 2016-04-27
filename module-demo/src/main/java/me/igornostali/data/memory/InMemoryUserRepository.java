@@ -1,7 +1,7 @@
-package me.ignornostali.data.memory;
+package me.igornostali.data.memory;
 
-import me.ignornostali.data.UserRepository;
-import me.ignornostali.model.User;
+import me.igornostali.data.UserRepository;
+import me.igornostali.model.User;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class InMemoryUserRepository implements UserRepository {
 
-    private Map<Long, User> database = new HashMap<>();
+    private Map<String, User> database = new HashMap<>();
 
     @Override
     public User add(final User user) {
@@ -21,13 +21,13 @@ public class InMemoryUserRepository implements UserRepository {
 
         user.setId(System.currentTimeMillis());
 
-        this.database.put(user.getId(), user);
+        this.database.put(user.getEmail(), user);
 
         return user;
     }
 
     @Override
-    public User get(final Long userId) {
-        return this.database.get(userId);
+    public User getByEmail(final String email) {
+        return this.database.get(email);
     }
 }

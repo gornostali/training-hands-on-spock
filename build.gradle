@@ -31,11 +31,17 @@ subprojects {
     targetCompatibility = '1.8'
 
     ext {
+        spring_version = '4.2.5.RELEASE'
         spock_version = '1.0-groovy-2.4'
     }
 
     ext.deps = [
-            spock: [
+            spring     : [
+                    "org.springframework:spring-core:$spring_version",
+                    "org.springframework:spring-context:$spring_version"
+            ],
+            spring_test: "org.springframework:spring-test:$spring_version",
+            spock      : [
                     "org.spockframework:spock-core:$spock_version"
             ],
     ]
