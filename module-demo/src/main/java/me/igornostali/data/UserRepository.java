@@ -11,5 +11,7 @@ public interface UserRepository {
 
     User add(final User user);
 
+    User[] getAll();
+
     User getByEmail(final String email);
 }

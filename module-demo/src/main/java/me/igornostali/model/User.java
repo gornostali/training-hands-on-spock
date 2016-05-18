@@ -12,6 +12,9 @@ public class User {
     private String lastName;
     private String email;
 
+    public User() {
+    }
+
     public User(final String email) {
         this.email = email;
     }
@@ -42,6 +45,10 @@ public class User {
 
     public String getEmail() {
         return this.email;
+    }
+
+    public void setEmail(final String email) {
+        this.email = email;
     }
 
     @Override

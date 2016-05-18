@@ -1,0 +1,25 @@
+project(':module-demo') {
+
+    apply plugin: 'jetty'
+
+    jettyRun {
+        httpPort = 8080
+
+        contextPath = project.name
+        stopPort = 28525
+        stopKey = 'stop key'
+    }
+
+    jettyStop {
+        stopPort = 28525
+        stopKey = 'stop key'
+    }
+
+    gradle.taskGraph.whenReady { taskGraph ->
+        if (taskGraph.hasTask(testAcceptance)) {
+            jettyRun {
+                daemon = true // Fork Jetty so acceptance tests can run
+            }
+        }
+    }
+}

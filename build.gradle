@@ -32,16 +32,23 @@ subprojects {
 
     ext {
         spring_version = '4.2.5.RELEASE'
+        jersey_version = '2.22.2'
         spock_version = '1.0-groovy-2.4'
     }
 
     ext.deps = [
-            spring     : [
+            spring       : [
                     "org.springframework:spring-core:$spring_version",
                     "org.springframework:spring-context:$spring_version"
             ],
-            spring_test: "org.springframework:spring-test:$spring_version",
-            spock      : [
+            spring_test  : "org.springframework:spring-test:$spring_version",
+            jersey_server: [
+                    "org.glassfish.jersey.core:jersey-server:$jersey_version",
+                    "org.glassfish.jersey.core:jersey-common:$jersey_version",
+                    "org.glassfish.jersey.media:jersey-media-json-jackson:$jersey_version",
+                    "org.glassfish.jersey.containers:jersey-container-servlet:$jersey_version"
+            ],
+            spock        : [
                     "org.spockframework:spock-core:$spock_version",
                     "org.spockframework:spock-spring:$spock_version"
             ],

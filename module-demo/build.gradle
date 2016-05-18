@@ -1,12 +1,16 @@
 project(':module-demo') {
     apply plugin: 'groovy'
 
+    apply from: 'build.war.gradle'
+    apply from: 'build.jetty.gradle'
+
     apply from: 'build.testIntegration.gradle'
     apply from: 'build.testAcceptance.gradle'
 
     dependencies {
         compile deps.spring
-        
+        compile deps.jersey_server
+
         testCompile deps.spock
         testCompile deps.spring_test
     }

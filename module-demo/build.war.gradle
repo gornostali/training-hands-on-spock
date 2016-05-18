@@ -1,0 +1,8 @@
+project(':module-demo') {
+
+    apply plugin: 'war'
+
+    war {
+        archiveName = "${project.name}-${project.version}.war"
+    }
+}

@@ -31,7 +31,7 @@ public class SimpleUserService implements UserService {
 
     @Override
     public User register(final User user) throws AlreadyExistsException {
-        if (user == null) throw new IllegalArgumentException("user cannot be null");
+        if (user == null) throw new IllegalArgumentException("User cannot be null");
 
         final User persisted = this.userRepository.getByEmail(user.getEmail());
         if (persisted != null) {

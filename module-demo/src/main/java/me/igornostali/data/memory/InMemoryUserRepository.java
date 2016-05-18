@@ -3,6 +3,7 @@ package me.igornostali.data.memory;
 import me.igornostali.data.UserRepository;
 import me.igornostali.model.User;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,6 +25,13 @@ public class InMemoryUserRepository implements UserRepository {
         this.database.put(user.getEmail(), user);
 
         return user;
+    }
+
+    @Override
+    public User[] getAll() {
+        final Collection<User> users = this.database.values();
+
+        return users.toArray(new User[users.size()]);
     }
 
     @Override
