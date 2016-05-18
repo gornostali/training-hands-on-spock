@@ -23,6 +23,8 @@ project(':module-demo') {
     }
 
     task testAcceptance(type: Test) {
+        dependsOn jettyRun
+
         classpath = sourceSets.testAcceptance.runtimeClasspath
         testClassesDir = sourceSets.testAcceptance.output.classesDir
 
@@ -32,5 +34,7 @@ project(':module-demo') {
         // By default the report would overwrite unit test report
         reports.junitXml.destination = "$buildDir/reports/testAcceptance"
         reports.html.destination = "$buildDir/reports/testAcceptance"
+
+        finalizedBy jettyStop
     }
 }
