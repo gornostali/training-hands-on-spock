@@ -1,0 +1,29 @@
+ext {
+    versions = [:]
+    libraries = [:]
+}
+
+versions.spring_version = '4.2.5.RELEASE'
+versions.jersey_version = '2.22.2'
+versions.spock_version = '1.0-groovy-2.4'
+
+libraries.spring = [
+    "org.springframework:spring-core:$versions.spring_version",
+    "org.springframework:spring-context:$versions.spring_version"
+]
+
+libraries.jersey_server = [
+    "org.glassfish.jersey.core:jersey-server:$versions.jersey_version",
+    "org.glassfish.jersey.core:jersey-common:$versions.jersey_version",
+    "org.glassfish.jersey.media:jersey-media-json-jackson:$versions.jersey_version",
+    "org.glassfish.jersey.containers:jersey-container-servlet:$versions.jersey_version"
+]
+
+libraries.spock = [
+    "org.spockframework:spock-core:$versions.spock_version",
+    "org.spockframework:spock-spring:$versions.spock_version"
+]
+
+libraries += [
+    spring_test: "org.springframework:spring-test:$versions.spring_version"
+]

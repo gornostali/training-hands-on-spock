@@ -1,0 +1,39 @@
+description = 'Defines behavior for acceptance test'
+
+sourceSets {
+    testAcceptance {
+        groovy {
+            srcDir file("src/testAcceptance/groovy")
+            compileClasspath += main.output + test.output
+            runtimeClasspath += main.output + test.output
+        }
+        java {
+            srcDir file("src/testAcceptance/java")
+            compileClasspath += main.output + test.output
+            runtimeClasspath += main.output + test.output
+        }
+        resources.srcDir file('src/testAcceptance/resources')
+    }
+}
+
+configurations {
+    testAcceptanceCompile.extendsFrom testCompile
+    testAcceptanceRuntime.extendsFrom testRuntime
+}
+
+task testAcceptance(type: Test) {
+    classpath = sourceSets.testAcceptance.runtimeClasspath
+    testClassesDir = sourceSets.testAcceptance.output.classesDir
+
+    // Never consider acceptance tests run up to date
+    outputs.upToDateWhen { false }
+
+    // By default the report would overwrite unit test report
+    reports.junitXml.destination = "$buildDir/reports/testAcceptance"
+    reports.html.destination = "$buildDir/reports/testAcceptance"
+
+    finalizedBy jettyStop
+}
+
+check.dependsOn testAcceptance
+testAcceptance.mustRunAfter test

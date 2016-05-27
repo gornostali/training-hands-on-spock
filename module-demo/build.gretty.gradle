@@ -1,0 +1,9 @@
+plugins {
+    id "org.akhikhl.gretty" version "1.2.4"
+}
+
+gretty {
+    port = 8080
+    servletContainer = 'jetty9' //tomcat7 or tomcat8
+    integrationTestTask = 'testIntegration'
+}

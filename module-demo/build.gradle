@@ -1,17 +1,19 @@
-project(':module-demo') {
-    apply plugin: 'groovy'
+apply plugin: 'groovy'
+apply plugin: 'war'
 
-    apply from: 'build.war.gradle'
-    apply from: 'build.jetty.gradle'
+apply from: 'build.jetty.gradle'
 
-    apply from: 'build.testIntegration.gradle'
-    apply from: 'build.testAcceptance.gradle'
+apply from: "$rootDir/gradle/build.testIntegration.gradle"
+apply from: "$rootDir/gradle/build.testAcceptance.gradle"
 
-    dependencies {
-        compile deps.spring
-        compile deps.jersey_server
+dependencies {
+    compile libraries.spring
+    compile libraries.jersey_server
 
-        testCompile deps.spock
-        testCompile deps.spring_test
-    }
+    testCompile libraries.spock
+    testCompile libraries.spring_test
+}
+
+war {
+    archiveName = "${project.name}-${project.version}.war"
 }
