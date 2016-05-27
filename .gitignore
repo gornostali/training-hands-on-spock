@@ -2,3 +2,6 @@
 *.iml
 .idea/**/*
 !.idea/codeStykeSettings.xml
+
+.gradle
+build
